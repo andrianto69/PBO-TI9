@@ -23,6 +23,8 @@ public class Pengajuan {
         this.desc = desc;
         this.price = price;
         this.qty = qty;
+        this.acc = false;
+        this.accNote = "";
     }
     
     public void update(String subject, String desc, double price, int qty) {
@@ -30,6 +32,7 @@ public class Pengajuan {
         this.desc = desc;
         this.price = price;
         this.qty = qty;
+        this.accNote = "";
     }
     public void accept(User accUser) {
         if (accUser.jabatan.equalsIgnoreCase("manager")) {
@@ -49,7 +52,6 @@ public class Pengajuan {
         }
     }
     public void info() {
-        System.out.println("== Info Pengajuan ==");
         System.out.println("No : " + this.no);
         System.out.println("User : " + this.user.name);
         System.out.println("Tanggal : " + this.date);
@@ -57,9 +59,11 @@ public class Pengajuan {
         System.out.println("Deskripsi : " + this.desc);
         System.out.println("Harga : " + this.price);
         System.out.println("Banyaknya : " + this.qty);
-        System.out.println("Terverifikasi : " + (this.acc ? "Ya" : "Tidak"));
-        if (this.acc) {
+        System.out.println("Terverifikasi : " + (this.acc == true ? "Ya" : (this.accNote.isEmpty() ? "Belum" : "Tidak")));
+        if (this.acc == true || !this.accNote.isEmpty()) {
             System.out.println("Verifikator : " + this.accUser.name);
+        }
+        if (!this.accNote.isEmpty()) {
             System.out.println("Catatan Verifikasi : " + this.accNote);
         }
     }
