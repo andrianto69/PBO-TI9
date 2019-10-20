@@ -14,6 +14,7 @@ public class Pengajuan {
     public Boolean acc;
     public String accNote;
     public User accUser;
+    private Anggaran anggaran;
 
     public Pengajuan(User user, String subject, String desc, double price, int qty) {
         this.no = new Random().nextInt(1000);
@@ -33,13 +34,21 @@ public class Pengajuan {
         this.price = price;
         this.qty = qty;
         this.accNote = "";
+        if (this.acc == true) {
+            this.anggaran.update();
+        }
     }
-    public void accept(User accUser) {
+    public Anggaran accept(User accUser) {
         if (accUser.jabatan.equalsIgnoreCase("manager")) {
             this.acc = true;
             this.accUser = accUser;
+            if (this.anggaran == null) {
+                this.anggaran = new Anggaran(accUser, this);
+            }
+            return this.anggaran;
         } else {
             System.out.println("Jabatan verifikator tidak sesuai !");
+            return null;
         }
     }
     public void decline(User accUser, String accNote) {
