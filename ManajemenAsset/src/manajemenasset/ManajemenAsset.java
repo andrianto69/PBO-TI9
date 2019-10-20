@@ -16,7 +16,7 @@ public class ManajemenAsset {
         user3.getProfile();
         System.out.println("=================");
         
-        // = Membuat pengajuan =
+        // Membuat pengajuan
         System.out.println("\n> Membuat Pengajuan 1");
         Pengajuan aju1 = new Pengajuan(user1, "Macbook 512GB Grey", "Untuk Manajemen", 25000, 3);
         aju1.info();
@@ -35,13 +35,13 @@ public class ManajemenAsset {
         System.out.println("\n> Terima Pengajuan 1, user salah");
         Anggaran dana1 = aju1.accept(user1);
         
+        System.out.println("\n> Objek anggaran dari penerimaan pengajuan, user salah");
+        System.out.println(dana1);
+        
         // Menerima pengajuan dengan user yang tepat
         System.out.println("\n> Terima Pengajuan 1, user tepat");
         Anggaran dana2 = aju1.accept(user2);
         aju1.info();
-
-        System.out.println("\n> Objek anggaran dari penerimaan pengajuan, user salah");
-        System.out.println(dana1);
         
         System.out.println("\n> Objek anggaran dari penerimaan pengajuan, user tepat");
         System.out.println(dana2);
