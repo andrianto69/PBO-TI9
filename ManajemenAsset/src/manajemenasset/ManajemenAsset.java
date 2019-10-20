@@ -1,4 +1,7 @@
 package manajemenasset;
+
+import java.util.List;
+
 public class ManajemenAsset {
     public static void main(String[] args) {
         // User
@@ -55,7 +58,7 @@ public class ManajemenAsset {
         dana2.decline(user3, "Beli 2 saja");
         dana2.info();
         
-        // Merubah pengajuan untuk anggran2
+        // Merubah pengajuan untuk anggaran2
         System.out.println("\n> Merubah Pengajuan 1 untuk Anggaran 2");
         aju1.update("Macbook 256 Grey", "Untuk Manajemen", 20000, 2);
         System.out.println("- Info Pengajuan 1 -");
@@ -67,5 +70,18 @@ public class ManajemenAsset {
         System.out.println("\n> Terima Anggaran 2");
         dana2.accept(user3);
         dana2.info();
+        
+        // Membeli Asset
+        System.out.println("\n> Membeli Asset dengan Anggaran 2");
+        Pembelian beli1 = new Pembelian(user1, dana2, "No Receipt: 123/X/2019");
+        beli1.info();
+        
+        // Asset yang telah dibeli
+        List<Asset> list = beli1.list;
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("\n> Info Asset yang telah dibeli [ asset ke-" + (i+1) + " ]");
+            Asset asset = list.get(i);
+            asset.info();
+        }
     }
 }

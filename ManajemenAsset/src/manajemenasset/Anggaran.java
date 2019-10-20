@@ -43,7 +43,7 @@ public class Anggaran {
         }
     }
     public void info() {
-        System.out.println("No : " + this.no);
+        System.out.println("No Anggaran : " + this.no);
         System.out.println("User : " + this.user.name);
         System.out.println("Tanggal : " + this.date);
         System.out.println("Subyek : " + this.pengajuan.subject);

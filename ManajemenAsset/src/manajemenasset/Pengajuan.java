@@ -61,7 +61,7 @@ public class Pengajuan {
         }
     }
     public void info() {
-        System.out.println("No : " + this.no);
+        System.out.println("No Pengajuan : " + this.no);
         System.out.println("User : " + this.user.name);
         System.out.println("Tanggal : " + this.date);
         System.out.println("Subyek : " + this.subject);
